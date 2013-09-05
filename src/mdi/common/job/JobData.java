@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.LinkedList;
 import java.util.List;
 
-import mdi.common.job.step.Step;
+import mdi.common.job.step.StepData;
 
 public class JobData implements Serializable {
 
@@ -15,17 +15,17 @@ public class JobData implements Serializable {
 	private boolean isScheduled;
 	private int connPoolSize;
 	
-	private List<Step> stepList;
+	private List<StepData> stepDataList;
 	
 	public JobData(String jobName) {
 		this.jobName = jobName;
-		this.stepList = new LinkedList<Step>();
+		this.stepDataList = new LinkedList<StepData>();
 	}
 
 	public JobData(String jobName, String schedExpression) {
 		this.jobName = jobName;
 		this.schedExpression = schedExpression;
-		this.stepList = new LinkedList<Step>();
+		this.stepDataList = new LinkedList<StepData>();
 	}
 
 	public String getJobName() {
@@ -56,9 +56,8 @@ public class JobData implements Serializable {
 		this.connPoolSize = connPoolSize;
 	}
 	
-	public Step getStep(int index) {
-		return this.stepList.get(index);
+	public StepData getStepData(int index) {
+		return this.stepDataList.get(index);
 	}
-	
 	
 }

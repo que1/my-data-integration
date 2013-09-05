@@ -6,7 +6,7 @@ import java.util.List;
 
 import mdi.common.job.step.parallel.element.IElement;
 
-public class ParallelTask implements Serializable {
+public class ParallelTaskData implements Serializable {
 
 	private static final long serialVersionUID = 7647489927737249987L;
 
@@ -14,7 +14,7 @@ public class ParallelTask implements Serializable {
 
 	private List<IElement> elementList;
 
-	public ParallelTask(String parallelTaskName) {
+	public ParallelTaskData(String parallelTaskName) {
 		this.parallelTaskName = parallelTaskName;
 		this.elementList = new LinkedList<IElement>();
 	}

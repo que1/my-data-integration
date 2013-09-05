@@ -4,9 +4,9 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-import mdi.common.job.step.parallel.ParallelTask;
+import mdi.common.job.step.parallel.ParallelTaskData;
 
-public class Step implements Serializable {
+public class StepData implements Serializable {
 
 	private static final long serialVersionUID = -4639923908686211013L;
 
@@ -15,17 +15,17 @@ public class Step implements Serializable {
 	private String schedExpression;
 	private int threadPoolSize;
 
-	private List<ParallelTask> parallelTaskList;
+	private List<ParallelTaskData> parallelTaskDataList;
 
-	public Step(String stepName) {
+	public StepData(String stepName) {
 		this.stepName = stepName;
-		this.parallelTaskList = new ArrayList<ParallelTask>();
+		this.parallelTaskDataList = new ArrayList<ParallelTaskData>();
 	}
 
-	public Step(int stepIndex, String stepName) {
+	public StepData(int stepIndex, String stepName) {
 		this.stepIndex = stepIndex;
 		this.stepName = stepName;
-		this.parallelTaskList = new ArrayList<ParallelTask>();
+		this.parallelTaskDataList = new ArrayList<ParallelTaskData>();
 	}
 
 	public int getStepIndex() {
@@ -56,10 +56,10 @@ public class Step implements Serializable {
 		this.threadPoolSize = threadPoolSize;
 	}
 
-	public ParallelTask getParallelTask(String parallelTaskName) {
-		for (ParallelTask parallelTask : this.parallelTaskList) {
-			if (parallelTask.getParallelTaskName().equals(parallelTaskName)) {
-				return parallelTask;
+	public ParallelTaskData getParallelTaskData(String parallelTaskName) {
+		for (ParallelTaskData parallelTaskData : this.parallelTaskDataList) {
+			if (parallelTaskData.getParallelTaskName().equals(parallelTaskName)) {
+				return parallelTaskData;
 			} else {
 				continue;
 			}
@@ -67,21 +67,21 @@ public class Step implements Serializable {
 		return null;
 	}
 
-	public void addParallelTask(ParallelTask parallelTask) {
-		this.parallelTaskList.add(parallelTask);
+	public void addParallelTaskData(ParallelTaskData parallelTaskData) {
+		this.parallelTaskDataList.add(parallelTaskData);
 	}
 
-	public void removeParallelTask(String parallelTaskName) {
+	public void removeParallelTaskData(String parallelTaskName) {
 		int index = -1;
-		for (ParallelTask parallelTask : this.parallelTaskList) {
+		for (ParallelTaskData parallelTaskData : this.parallelTaskDataList) {
 			index++;
-			if (parallelTask.getParallelTaskName().equals(parallelTaskName)) {
+			if (parallelTaskData.getParallelTaskName().equals(parallelTaskName)) {
 				break;
 			}
 		}
 		
 		if (index > -1) {
-			this.parallelTaskList.remove(index);
+			this.parallelTaskDataList.remove(index);
 		} else {
 			return;
 		}
