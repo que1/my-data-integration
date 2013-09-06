@@ -33,13 +33,21 @@ public class Job {
 		
 	}
 
-	public void unscheduler() throws SchedulerException;
+	public void unscheduler() throws SchedulerException {
+		
+	}
 
-	public void initExecuteCondition(Object... objects);
+	public void initExecuteCondition(Object... objects) {
+		
+	}
 
-	public void clearExecuteCondition();
+	public void clearExecuteCondition() {
+		
+	}
 
-	public void execute();
+	public void execute() {
+		
+	}
 
 	public JobData getJobData() {
 		return this.jobData;
